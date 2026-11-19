@@ -84,3 +84,20 @@ mod accrual_indexer_parity;
 // CPU/memory budgets under batch payroll workloads (MAX_BATCH_SIZE streams,
 // pause/resume history, no super-linear growth).
 mod accrual_budget;
+
+// Issue #415: Strict invariant assertions to protect against re-entrancy and
+// state desync in the stream cancellation/settlement window.
+mod invariant_assertions;
+
+// Issue #414: Byzantine fault tolerance scenarios under simulated ledger
+// discontinuities, clock drift, concurrent state conflicts, and partial
+// batch failures.
+mod byzantine_fault_tolerance;
+
+// Issue #412: Granular role-based authorization — exhaustive negative-path
+// matrix for every mutating entry point against every unauthorized caller.
+mod role_based_authorization;
+
+// Issue #410: Fuzzing coverage for cliff edge-case timestamps near the u64
+// maximum boundary, using both explicit probes and proptest-driven fuzzing.
+mod cliff_fuzz_u64_boundary;
